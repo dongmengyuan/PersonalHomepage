@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="PersonalHomepage">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.0">
+    <root id="1"/>
+    <schema id="2" parent="1" name="PersonalHomepage">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="BookManager"/>
+    <schema id="4" parent="1" name="dmy"/>
+    <schema id="5" parent="1" name="dongmengyuan"/>
+    <schema id="6" parent="1" name="information_schema"/>
+    <schema id="7" parent="1" name="JWGL"/>
+    <schema id="8" parent="1" name="Market"/>
+    <schema id="9" parent="1" name="mysql"/>
+    <schema id="10" parent="1" name="performance_schema"/>
+    <schema id="11" parent="1" name="sys"/>
+    <table id="12" parent="2" name="City_dict"/>
+    <table id="13" parent="2" name="Dynamaic"/>
+    <table id="14" parent="2" name="UserInfor"/>
+    <column id="15" parent="12" name="city_id">
+      <Position>1</Position>
+      <DataType>smallint(6)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="16" parent="12" name="parent_id">
+      <Position>2</Position>
+      <DataType>smallint(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="17" parent="12" name="dict_index">
+      <Position>3</Position>
+      <DataType>smallint(6)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="18" parent="12" name="dict_value">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="19" parent="12" name="PRIMARY">
+      <ColNames>city_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="20" parent="13" name="dynamaic_id">
+      <Position>1</Position>
+      <DataType>bigint(20) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="21" parent="13" name="user_id">
+      <Position>2</Position>
+      <DataType>bigint(20) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="22" parent="13" name="cre_infor">
+      <Position>3</Position>
+      <DataType>varchar(1000)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="23" parent="13" name="cre_time">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="24" parent="13" name="user_id">
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="25" parent="13" name="PRIMARY">
+      <ColNames>dynamaic_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="26" parent="13" name="Dynamaic_ibfk_1">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>PersonalHomepage</RefSchemaName>
+      <RefTableName>UserInfor</RefTableName>
+      <RefColNames>user_id</RefColNames>
+    </foreign-key>
+    <column id="27" parent="14" name="user_id">
+      <Position>1</Position>
+      <DataType>bigint(20) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="28" parent="14" name="user_name">
+      <Position>2</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="29" parent="14" name="user_passwd">
+      <Position>3</Position>
+      <DataType>char(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="30" parent="14" name="user_addressid">
+      <Position>4</Position>
+      <DataType>smallint(6)|0</DataType>
+    </column>
+    <column id="31" parent="14" name="user_address">
+      <Position>5</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="32" parent="14" name="user_image">
+      <Position>6</Position>
+      <DataType>longblob|0</DataType>
+    </column>
+    <index id="33" parent="14" name="user_addressid">
+      <ColNames>user_addressid</ColNames>
+    </index>
+    <index id="34" parent="14" name="user_name">
+      <ColNames>user_name</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="35" parent="14" name="PRIMARY">
+      <ColNames>user_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="36" parent="14" name="user_name">
+      <ColNames>user_name</ColNames>
+      <UnderlyingIndexName>user_name</UnderlyingIndexName>
+    </key>
+    <foreign-key id="37" parent="14" name="UserInfor_ibfk_1">
+      <ColNames>user_addressid</ColNames>
+      <RefSchemaName>PersonalHomepage</RefSchemaName>
+      <RefTableName>City_dict</RefTableName>
+      <RefColNames>city_id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
